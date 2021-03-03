@@ -26,9 +26,13 @@
 `time openssl dgst -sha1 bigfile`  
 `time openssl dgst -sha512 bigfile`
 5. Вычислите имитовставку, используя алгоритм SHA512, для текстового файла с разными ключами, сравните результаты. (скриншоты в отчет)  
-`time openssl dgst -md4 bigfile`  
+`cat > text.txt`
+`Live Text`
+`Ctrl-Z`  
+`openssl dgst -sha512 -mac HMAC -macopt hexkey:123456 text.txt`  
+`openssl dgst -sha512 -mac HMAC -macopt hexkey:7890 text.txt` 
 6. Получите имитовставку для текстового файла с разными ключами, имитовставка длиной N байт (N-последняя цифра в зачетке), в формате base64, используя алгоритм DES-CBC, сравните результаты. (скриншоты в отчет)  
-`time openssl dgst -md4 bigfile`   
+``   
 # Теория
 1. хеширование
 2. имитовставка (принцип вычислений и области применения)
